@@ -1,0 +1,20 @@
+<h3>Listado de heroes</h3>
+<div *ngIf="deleteHero; else mostrarMensajeUltimo">
+  <h3>Heroe Borrado: <small class="text-danger">{{deleteHero}}</small></h3>
+</div>
+<!-- El hast Hashtag #mostrarMensajeUltimo hace referencia al else del ngIf de arriba, esto lo que hace es como si fuera un disable = true, lo muestra cuando el if vaya al else-->
+<ng-template #mostrarMensajeUltimo>
+  <h3>No he borrado nada</h3>
+</ng-template>
+
+
+<button *ngIf="heroNames.length > 0"(click)="removeLastHero()" class="btn btn-outline-danger">Borrar último heroe</button>
+
+
+<ul class="mt-2 list-group">
+
+  <li *ngFor="let name of heroNames" class="list-group-item">
+    {{name}}
+  </li>
+
+</ul>

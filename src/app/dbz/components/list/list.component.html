@@ -1,0 +1,27 @@
+<h4> LISTADO </h4>
+    <ul class="list-group d-flex justify-content-between">
+      <!-- Para saber el indice de la posición que va a mostrar, generamos una segunda variable temporal a la cual le asignamos el valor de index que es una variable propia del ngFor -->
+      <li *ngFor="let character of characterList;
+      let i = index;
+      let isFirts = first;
+      let isLast = last;
+      let isEven = even;
+      let isOdd = odd"
+            class="list-group-item"
+            [ngClass]="{
+              'list-group-item-succes': isLast,
+              'list-group-item-primary': isEven
+            }">
+        <div>
+          <span class="text-primary">{{i+1}}. </span>
+
+          <span>{{character.name}}</span>
+
+          <strong> - Power:</strong>
+
+          <span>{{character.power}}</span>
+        </div>
+        <!-- Debido a que el atributo esta definido como opcional, por eso para eliminar el error se pone que se mande vacio si es undefined -->
+        <button (click)="onDeleteCharacterById(character.id || '')" class="btn btn-danger">X</button>
+      </li>
+    </ul>

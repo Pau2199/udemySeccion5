@@ -1,0 +1,20 @@
+<h1>DBZ Personakes</h1>
+
+<div class="row">
+  <div class="col">
+    <!-- Entre los corchetes se encuentra el parametro que hemos defido como input  en el componente list.component.ts y el = "character" hace referencia al array publico que esta
+    definido con los valores que veremos mostrar en la ventana-->
+    <dbz-list-works [characterList]="characters" (idEliminar)="deleteById($event)"></dbz-list-works> <!-- Modulo listado Personajes -->
+
+  </div>
+  <div class="col">
+    <dbz-add-character (onNewCharacterHijo)="onNewCharacter($event)"></dbz-add-character> <!-- Modulo formulario -->
+  </div>
+</div>
+
+<!--  Para escuchar eventos se utilizan los parentesis, cuando queremos mandar información utilizamos los []
+  Es decir cuando queremos enviar información entre componentes utilizamos los corchetes [] los cuales dentro esta especificado a donde se va almacenar la infomación que recibimos
+  y el = "" especifica el nombre de la variable que es enviada
+  Por otro lado cuando lo que esperamos es una información enviada a traves de un formulario, es decir esperamos un submit utilizamos los parentesis (), donde lo que va entre parentesis
+  es el nombre del atributo que esta definidio con la clase EventEmitter y lo que se encuentra dentro de las comillas = "" es el método del ts donde se va a tratar es información
+  El $event representa el atributo(datos rellenados en el form) que es enviado desde el componente que contiene el form-->
